@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+@media print {
+
+    @page {
+        /* papersize */
+        size: A4;
+        /* landscape */
+        /* size: A4 landscape; */
+    }
+
+    :root {
+        /* font size (relative to default 16px = 12.045(TeX)pt, scaled by 0.962216 * 0.961) */
+        /* 8pt */
+        /* font-size: 61.4%; */
+        /* 9pt */
+        /* font-size: 69.1%; */
+        /* 10pt */
+        font-size: 76.8%;
+        /* 11pt */
+        /* font-size: 84.4%; */
+        /* 12pt */
+        /* font-size: 92.1%; */
+        /* 14pt */
+        /* font-size: 107.5%; */
+        /* 12Q */
+        /* font-size: 70.9%; */
+        /* 14Q */
+        /* font-size: 82.7%; */
+    }
+
+    /* twocolumn */
+    /*
+    :root {
+        column-count: 2;
+    }
+    .large {
+        line-height: 1.73;
+    }
+    */
+
+
+    /* titlepage */
+    /*
+    body > header:first-child {
+        page-break-after: always;
+    }
+   */
+
+    /* openright */
+    /*
+    [role~="dpub-chapter"] {
+        page-break-before: right;
+    }
+   */
+}

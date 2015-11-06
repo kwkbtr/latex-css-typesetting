@@ -1,0 +1,187 @@
+@charset "utf-8";
+
+@media print {
+    @page {
+        margin-top: auto;
+        width: 48.5rem;
+        height: 80rem;
+        @bottom-center {
+            font-size: 76.8%;
+            content: counter(page);
+        }
+    }
+}
+
+@media screen {
+    body {
+        max-width: 48.5rem;
+        margin: 1rem auto;
+    }
+}
+
+:root {
+    /* baselineskip = 1.6 / (0.962216 * 0.961) */
+    line-height: 1.73;
+
+    column-gap: 2em;
+
+    counter-reset: chapter section1 section2;
+}
+
+p {
+    text-indent: 1em;
+    text-align: justify;
+}
+
+.tiny {
+    font-size: 0.5rem;
+    line-height: 1.30;
+}
+
+.scriptsize {
+    font-size: 0.7rem;
+    line-height: 1.24;
+}
+
+.footnotesize {
+    font-size: 0.8rem;
+    line-height: 1.49;
+}
+
+.small {
+    font-size: 0.9rem;
+    line-height: 1.56;
+}
+
+.normalsize, section[role~="dpub-chapter"] > section > section > h3, section[role~="dpub-chapter"] > section > section > section > h4, section[role~="dpub-chapter"] > section > section > section > section > h5, [role~="dpub-abstract"] > h1 {
+    font-size: 1rem;
+    line-height: 1.73;
+}
+
+.large, body > header:first-child .authors, body > header:first-child .date, section[role~="dpub-chapter"] > section > h2 {
+    font-size: 1.2rem;
+    line-height: 1.53;
+}
+
+.Large, section[role~="dpub-chapter"] > h1 {
+    font-size: 1.4rem;
+    line-height: 1.62;
+}
+
+.LARGE, body > header:first-child > h1 {
+    font-size: 1.7rem;
+    line-height: 1.59;
+}
+
+.huge {
+    font-size: 2rem;
+    line-height: 1.51;
+}
+
+.Huge {
+    font-size: 2.5rem;
+    line-height: 1.43;
+}
+
+.HUGE {
+    font-size: 3rem;
+    line-height: 1.44;
+}
+
+/* title */
+body > header:first-child {
+    page-break-before: always;
+    margin-top: 2rem;
+}
+body > header:first-child > * {
+    text-align: center;
+}
+body > header:first-child > h1 {
+    margin-bottom: 1.5rem;
+}
+body > header:first-child .authors {
+    margin-bottom: 1rem;
+}
+body > header:first-child .author + .author {
+    margin-left: 5rem;
+}
+body > header:first-child .date {
+    text-indent: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* headers */
+section[role~="dpub-chapter"] > h1 {
+    counter-increment: chapter;
+    margin-top: 1.73rem;
+    margin-bottom: 0.865rem;
+}
+section[role~="dpub-chapter"] > h1::before {
+    content: counter(chapter);
+    margin-right: 1em;
+}
+section[role~="dpub-chapter"] > section > h2 {
+    counter-increment: section1;
+    margin-top: 1.73rem;
+    margin-bottom: 0.865rem;
+}
+section[role~="dpub-chapter"] > section > h2::before {
+    content: counter(chapter) "." counter(section1);
+    margin-right: 1em;
+}
+section[role~="dpub-chapter"] > section > section > h3 {
+    margin-top: 1.73rem;
+    counter-increment: section2;
+}
+section[role~="dpub-chapter"] > section > section > h3::before {
+    content: counter(chapter) "." counter(section1) "." counter(section2);
+    margin-right: 1em;
+}
+section[role~="dpub-chapter"] > section > section > section > h4 {
+    margin-top: 0.865rem;
+}
+section[role~="dpub-chapter"] > section > section > section > h4::before {
+    content: "■";
+}
+section > h1, section > h2, section > h3, section > h4, section > h5, section > h6 {
+    font-family: sffamily, gtfamily, sans-serif;
+    font-weight: bold;
+}
+
+
+/* list */
+li {
+    margin-left: 3em;
+}
+li > * > li {
+    margin-left: 2em;
+}
+ol > li ol > li {
+    list-style-type: lower-alpha;
+}
+ol > li ol > li ol > li {
+    list-style-type: lower-roman;
+}
+ol > li ol > li ol > li ol > li {
+    list-style-type: upper-alpha;
+}
+dl {
+    display: table;
+}
+dl > dt, dl > dd {
+    display: table-cell;
+}
+dl > dt {
+    font-family: sffamily, gtfamily, sans-serif;
+}
+
+/* abstract */
+[role~="dpub-abstract"] > h1 {
+    text-align: center;
+}
+
+/* quote */
+blockquote {
+    margin-left: 2em;
+    margin-right: 2em;
+}

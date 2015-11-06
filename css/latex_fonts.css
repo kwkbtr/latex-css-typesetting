@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: rmfamily;
+    src: local("Georgia"), local("serif");
+}
+
+@font-face {
+    font-family: sffamily;
+    src: local("Helvetica Neue"), local("Roboto"), local("Verdana"), local("sans-serif");
+}
+
+@font-face {
+    font-family: ttfamily;
+    src: local("Source Code Pro"), local("Monaco"), local("Consolas"), local("monospace");
+}
+
+@font-face {
+    font-family: mcfamily;
+    src: local("游明朝"), local("YuMincho"), local("Hiragino Mincho ProN"), local("serif");
+}
+
+@font-face {
+    font-family: gtfamily;
+    src: local("游ゴシック"), local("YuGothic"), local("Hiragino Kaku Gothic ProN"), local("Meiryo"), local("sans-serif");
+}

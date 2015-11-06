@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-weight: normal;
+}
+
+/** Typography **/
+
+:root {
+    font-family: rmfamily, mcfamily, serif;
+}
+
+.textrm {
+    font-family: rmfamily, mcfamily, serif;
+}
+
+.textsf {
+    font-family: sffamily, gtfamily, sans-serif;
+}
+
+/* corresponds to texttt */
+code {
+    font-family: ttfamily, monospace;
+}
+
+.textmc {
+    font-family: mcfamily, serif;
+}
+
+.textgt {
+    font-family: gtfamily, sans-serif;
+}
+
+.textmd {
+    font-weight: normal;
+}
+
+/* corresponds to textbf */
+strong {
+    font-weight: bold;
+}
+
+.textup {
+    font-style: normal;
+}
+
+/* corresponds to textit */
+em {
+    font-style: italic;
+}
+
+.textsl > em {
+    font-style: oblique;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/** Layout **/
+
+.flushleft {
+    text-align: left;
+}
+
+.flushright {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
