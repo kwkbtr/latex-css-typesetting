@@ -1,0 +1,65 @@
+\newcommand\bra[2][]{\mathord{
+    \mathstrut{\vphantom{\langle{#2}|}}_{#1}
+    \mkern-3mu\langle{#2}|}}
+\newcommand\ket[2][]{\mathord{|{#2}\rangle}_{\mkern-0mu{#1}}}
+\newcommand\ketbra[3][]{\mathord{\ket[#1]{#2}\mkern-1mu\bra{#3}}}
+\newcommand\pketbra[2][]{\ketbra[#1]{#2}{#2}}
+\newcommand\braket[2][]{\mathord{
+    \mathstrut{\vphantom{\langle{#2}\rangle}}_{#1}
+    \mkern-3mu{\langle{#2}\rangle}_{\mkern-3mu{#1}}}}
+\newcommand\nbraket[2][]{\braket{#1}{#2|#2}}
+\newcommand\Bra[2][]{\mathord{
+    \mathstrut{\vphantom{\left<{#2}\right|}}_{#1}
+    \mkern-3mu{\left<{#2}\right|}}}
+\newcommand\Ket[2][]{\mathord{\left|{#2}\right>}_{\mkern-3mu{#1}}}
+\newcommand\KetBra[3][]{\mathord{\Ket[#1]{#2\vphantom{#3}}\Bra{\vphantom{#2}#3}}}
+\newcommand\pKetBra[2][]{\KetBra[#1]{#2}{#2}}
+{\catcode`\|=\active 
+  \gdef\Braket#1{\left<\mathcode`\|"8000\let|\BraVert {#1}\right>}}
+\def\BraVert{\egroup\,\mid@vertical\,\bgroup}
+\newcommand\BraKet[2][]{\mathord{
+    \mathstrut{\vphantom{\left<{#2}\right>}}_{#1}
+    \mkern-3mu{\left<{#2}\right>}_{\mkern-3mu{#1}}}}
+\newcommand\nBraKet[2][]{\BraKet[#1]{\left.#2\right|#2}}
+
+\newcommand\cbra[2][]{\mathord{
+    \mathstrut{\vphantom{\{{#2}|}}_{#1}
+    \mkern-3mu\{{#2}|}}
+\newcommand\cket[2][]{\mathord{|{#2}\}}_{\mkern-0mu{#1}}}
+\newcommand\cketbra[3][]{\mathord{\cket[#1]{#2}\mkern-1mu\cbra{#3}}}
+\newcommand\cpketbra[2][]{\cketbra[#1]{#2}{#2}}
+\newcommand\cbraket[2][]{\mathord{
+    \mathstrut{\vphantom{\{{#2}\}}}_{#1}
+    \mkern-3mu{\{{#2}\}}_{\mkern-3mu{#1}}}}
+\newcommand\cnbraket[2][]{\cbraket{#1}{#2|#2}}
+\newcommand\cBra[2][]{\mathord{
+    \mathstrut{\vphantom{\left\{{#2}\right|}}_{#1}
+    \mkern-3mu{\left\{{#2}\right|}}}
+\newcommand\cKet[2][]{\mathord{\left|{#2}\right\}}_{\mkern-3mu{#1}}}
+\newcommand\cKetBra[3][]{\mathord{\cKet[#1]{#2\vphantom{#3}}\cBra{\vphantom{#2}#3}}}
+\newcommand\cpKetBra[2][]{\cKetBra[#1]{#2}{#2}}
+\newcommand\cBraKet[2][]{\mathord{
+    \mathstrut{\vphantom{\left\{{#2}\right\}}}_{#1}
+    \mkern-3mu{\left\{{#2}\right\}}_{\mkern-3mu{#1}}}}
+\newcommand\cnBraKet[2][]{\cBraKet[#1]{\left.#2\right|#2}}
+
+\newcommand\rbra[2][]{\mathord{
+    \mathstrut{\vphantom{({#2}|}}_{#1}
+    \mkern-3mu({#2}|}}
+\newcommand\rket[2][]{\mathord{|{#2})}_{\mkern-0mu{#1}}}
+\newcommand\rketbra[3][]{\mathord{\rket[#1]{#2}\mkern-1mu\rbra{#3}}}
+\newcommand\rpketbra[2][]{\rketbra[#1]{#2}{#2}}
+\newcommand\rbraket[2][]{\mathord{
+    \mathstrut{\vphantom{({#2})}}_{#1}
+    \mkern-3mu{({#2})}_{\mkern-3mu{#1}}}}
+\newcommand\rnbraket[2][]{\rbraket{#1}{#2|#2}}
+\newcommand\rBra[2][]{\mathord{
+    \mathstrut{\vphantom{\left({#2}\right|}}_{#1}
+    \mkern-3mu{\left({#2}\right|}}}
+\newcommand\rKet[2][]{\mathord{\left|{#2}\right)}_{\mkern-3mu{#1}}}
+\newcommand\rKetBra[3][]{\mathord{\rKet[#1]{#2\vphantom{#3}}\rBra{\vphantom{#2}#3}}}
+\newcommand\rpKetBra[2][]{\rKetBra[#1]{#2}{#2}}
+\newcommand\rBraKet[2][]{\mathord{
+    \mathstrut{\vphantom{\left({#2}\right)}}_{#1}
+    \mkern-3mu{\left({#2}\right)}_{\mkern-3mu{#1}}}}
+\newcommand\rnBraKet[2][]{\rBraKet[#1]{\left.#2\right|#2}}
