@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>“Vivliostyle” CSS組版システム</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="css/style.css" />
+<style>
+ @page {
+     @top-left {
+         content: "Page "counter(page) " TeXユーザーのためのCSS組版との付き合い方";
+     }
+     @top-right {
+         content: normal;
+     }
+ }
+ @page:first {
+     @top-left {
+         content: normal;
+     }
+     counter-reset: page 0;
+ }
+ .tex-e-letter {
+     position: relative;
+     top: 0.3em;
+     margin-left: -0.1em;
+     margin-right: -0.1em;
+ }
+ .latex-a-letter {
+     font-size: 80%;
+     position: relative;
+     bottom: 0.3em;
+     margin-left: -0.3em;
+     margin-right: -0.1em;
+ }
+ .author {
+     margin-top: 10rem;
+ }
+ .author, .date {
+     text-align: right;
+ }
+ .del {
+     text-decoration: line-through;
+     color: #999999;
+ }
+ h2.alert {
+     font-size: 200%;
+     text-align: center;
+     color: #FF3333;
+     margin-top: 0.5em;
+ }
+ li.good, li.bad {
+     list-style-type: none;
+ }
+ li.good::before {
+     content: "😊️️️ ";
+     vertical-align: middle;
+     font-size: 150%;
+     line-height: 1em;
+ }
+ li.bad::before {
+     content: "😥 ";
+     vertical-align: middle;
+     font-size: 150%;
+     line-height: 1em;
+ }
+</style>
+</head>
+<body class="contents">
+    <section>
+        <h1>T<span class="tex-e-letter">E</span>XユーザーのためのCSS組版との付き合い方</h1>
+        <p class="author">川久保 亮 （<a href="http://vivliostyle.com">ビブリオスタイル</a>）</p>
+        <p class="date">T<span class="tex-e-letter">E</span>Xユーザの集い2015</p>
+    </section>
+
+    <section>
+        <h1>目次</h1>
+        <h3>CSS組版の現状</h3>
+        <h3>既存のL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X資産をCSS組版で利用する</h3>
+        <h4>文書のセマンティクスを保ったデータ変換</h4>
+        <h4>よく利用されるクラスファイル・パッケージに対応するCSS</h4>
+        <h4>画像などのリソースを含めたデータ管理・執筆環境</h4>
+        <h3>HTML/CSS文書をL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>Xで組版する</h3>
+        <h3>真のワンソース・マルチユースに向けて（仮）</h3>
+    </section>
+
+    <section>
+        <h1>目次</h1>
+        <h3>CSS組版の現状</h3>
+        <h3>既存のL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X資産をCSS組版で利用する</h3>
+        <h4>文書のセマンティクスを保ったデータ変換</h4>
+        <h4>よく利用されるクラスファイル・パッケージに対応するCSS</h4>
+        <h4 class="del">画像などのリソースを含めたデータ管理・執筆環境</h4>
+        <h3 class="del">HTML/CSS文書をL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>Xで組版する</h3>
+        <h3 class="del">真のワンソース・マルチユースに向けて（仮）</h3>
+        <h2 class="alert">準備不足です すみません</h2>
+    </section>
+
+    <h1>CSS組版の現状</h1>
+
+    <section>
+        <h1>CSS組版とは</h1>
+        <ul>
+            <li>HTML（またはXML）とCSSを使った組版
+                <ul>
+                    <li>HTML/CSS: Web・電子書籍(EPUB)の標準技術
+                        <ul>
+                            <li>HTML: 情報を構造化して記述するマークアップ言語</li>
+                            <li>CSS: 視覚的・聴覚的な表現方法を指定</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>良いところ・悪いところ
+                <ul>
+                    <li class="good">1つのデータでWeb・電子書籍・印刷物に展開できる</li>
+                    <li class="good">（正しく作れば）アクセシビリティが高い</li>
+                    <li class="bad">組版の品質・自由度がまだそれほど高くない</li>
+                </ul>
+            </li>
+            <li>既存のCSS組版エンジン: AH Formatter, Princeなど</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>新しいCSS組版 <a href="http://vivliostyle.com">Vivliostyle</a></h1>
+        <ul>
+            <li>Webブラウザ上で動く組版エンジン
+                <ul>
+                    <li class="good">Webブラウザの最新の標準技術を使える</li>
+                    <li class="good">画面上でリアルタイムにレイアウトをプレビューできる</li>
+                </ul>
+            </li>
+            <li>コア部分はオープンソース</li>
+            <li>年内に製品リリース予定</li>
+            <li>開発と並行してW3CでのCSS標準仕様策定も
+                <ul>
+                    <li><a href="http://www.w3.org/TR/css-page-floats-3/">CSS Page Floats</a></li>
+                    <li>その他ページ関連仕様</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Vivliostyleの機能</h1>
+        <h2>実装済み</h2>
+        <ul>
+            <li>基本的なページ組版（ページサイズ・マージン・ページ番号）</li>
+            <li>段組・縦組み・ルビ</li>
+            <li>任意の形の文字の回り込み（制限あり）</li>
+        </ul>
+        <h2>これから</h2>
+        <ul>
+            <li>図版の配置(CSS Page Floats)、柱・脚注・相互参照(CSS GCPM)</li>
+            <li>ぶら下げ組など、細かい文字レイアウトの制御</li>
+            <li>目次・参考文献・索引などの自動生成</li>
+        </ul>
+        <p><a href="http://vivliostyle.com/ja/sample/">デモ</a></p>
+    </section>
+
+    <section>
+        <h1>CSS組版(Vivliostyle)とL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>Xの関係</h1>
+        <ul>
+            <li>現状のVivliostyle（CSS組版）
+                <ul>
+                    <li class="good">1つのデータでWeb・電子書籍に使える</li>
+                    <li class="good">アクセシビリティが高い</li>
+                    <li class="bad">高度なレイアウト制御はまだこれから</li>
+                    <li class="bad">相互参照・自動生成系の機能もこれから</li>
+                </ul>
+            </li>
+            <li>適材適所で、L<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>Xとうまく補い合えるのでは？</li>
+            <li>既存の資産を生かしつつ、双方のメリットを享受したい</li>
+        </ul>
+    </section>
+
+    <h1>既存のL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X資産をCSS組版で利用する</h1>
+
+    <section>
+        <h1>前提</h1>
+        <ul>
+            <li>既存のL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X文書 → HTML/CSS文書</li>
+            <li>全てを完璧に変換するのは不可能（当然ですが）
+                <ul>
+                    <li>T<span class="tex-e-letter">E</span>Xはプログラミング言語だがHTML/CSSは宣言的なマークアップ言語</li>
+                    <li>HTMLが情報そのもの、CSSがスタイルを担っているのに対して、L<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>Xではそれらが（容易に）混在しうる</li>
+                </ul>
+            </li>
+            <li>情報のセマンティックな構造を保つことを優先しつつ、見た目のレベルを上げたい</li>
+            <li>L<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X文書が持っている見た目の情報を自動変換するのは難しい
+                <ul>
+                    <li>→ L<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X文書は見た目の情報を含まないHTMLに変換
+                        <ul>
+                            <li>→ <a href="http://pandoc.org/">Pandoc</a>を使用</li>
+                        </ul>
+                    </li>
+                    <li>→ クラスファイルに対応するようなCSSを手で作成</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>セマンティックな情報を保つための工夫</h1>
+        <ul>
+            <li>純粋なHTMLだけでは、情報の意味を表現するのに不十分
+                <ul>
+                    <li>「これは概要です」「これは脚注です」など</li>
+                </ul>
+            </li>
+            <li>HTMLの属性などを使って情報を追加
+                <ul>
+                    <li><a href="http://oreillymedia.github.io/HTMLBook/">HTMLBook</a>
+                        <ul>
+                            <li>O'Reilly Mediaが作成、標準仕様ではない</li>
+                            <li>独自の属性で情報を追加するのに加え、文書構造も規定</li>
+                        </ul>
+                    </li>
+                    <li><a href="http://www.w3.org/TR/dpub-aria-1.0/">Digital Publishing WAI-ARIA Module (DPUB-ARIA)</a>
+                        <ul>
+                            <li>W3Cの<a href="http://www.w3.org/WAI/PF/dpub-a11y-tf/">Digital Publishing ARIA Task Force</a>が提案した標準仕様のドラフト
+                                <ul>
+                                    <li><a href="http://www.idpf.org/epub/vocab/structure/">EPUB 3 Structural Semantics Vocabulary</a>を発展させるもの</li>
+                                    <li>将来的にはEPUBも含めた標準になる可能性</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>PandocによるL<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X→HTML変換</h1>
+        <ul>
+            <li><a href="http://pandoc.org/">Pandoc</a>: Haskell製の文書変換ツール(GPL)
+                <ul>
+                    <li>各フォーマットごとのReaderを使って共通フォーマット(AST)に変換し、各フォーマットごとのWriterを使って書き出す</li>
+                    <li class="good">Reader, Writerを書けば様々なパターンの変換が可能</li>
+                    <li class="bad">ASTの仕様にない情報は落ちてしまう</li>
+                </ul>
+            </li>
+            <li>L<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>XのReaderとHTMLのWriterをそれぞれ改変して使用
+                <ul>
+                    <li>GitHub: <a href="https://github.com/kwkbtr/pandoc/tree/latex_html">Pandoc本体</a>・<a href="https://github.com/kwkbtr/pandoc-templates">Pandocテンプレート</a></li>
+                    <li>L<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>X Reader: 今まで情報が落ちていたフォント指定などを保つように変更</li>
+                    <li>HTML Writer: HTMLBookを参考にした構造で、DPUB-ARIAの属性を付加するオプションを追加</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>L<span class="latex-a-letter">A</span>T<span class="tex-e-letter">E</span>Xのクラスファイルに対応するCSS</h1>
+        <ul>
+            <li>Pandocでの変換時に付加したDPUB-ARIAの属性をセレクターに使う</li>
+            <li>jsarticleのレイアウトをエミュレートするCSSを作成
+                <ul>
+                    <li><a href="https://github.com/kwkbtr/latex-css-typesetting/tree/master/css">GitHub</a>
+                    <li>段組なしのシンプルなケースのみ…</li>
+                    <li>（なぜか版面のサイズが違う…）</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>まとめ</h1>
+        <ul>
+            <li>実用に耐える品質まではもう一手間必要
+                <ul>
+                    <li>図版の配置・数式・表組み・参考文献…</li>
+                    <li>画像形式の変換（EPS, PDF → SVGなど）</li>
+                </ul>
+            </li>
+            <li>エンドユーザーに使いやすいものにしていきたいので、もう少し整備した段階で皆さんに試していただきたいと思っています。よろしくお願いします。</li>
+        </ul>
+    </section>
+
+</body>
+</html>
